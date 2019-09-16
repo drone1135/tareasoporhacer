@@ -1,21 +1,25 @@
-const opts = {
+const opt = {
     descripcion: {
         demand: true,
-        alias: 'd'
-    },
-    completado: {
-        default: true,
-        alias: 'c'
+        alias: 'd',
+        desc: "Descripción de la tarea por hacer"
     }
-
-
+}
+const opts = {
+    opt,
+    completado: {
+        alias: 'c',
+        default: true,
+        desc: 'Marca como completado o pendiente la tarea'
+    }
 }
 
-const argvs = require('yargs')
-    .command('crear', 'crear una tarea por hacer', opts)
-    .command('actualizar', 'actualiza el estado completado de una tarea')
+const argv = require('yargs')
+    .command('crear', 'crear una tarea por hacer', opt)
+    .command('listar', 'lista las tareas', opts)
+    .command('actualizar', 'actualiza el estado completado de una tarea', opts)
     .help().argv;
 
-module.export = {
-    argvs
+module.exports = {
+    argv
 }
