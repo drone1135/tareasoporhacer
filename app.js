@@ -27,6 +27,10 @@ switch (comando) {
         let borrar=porHacer.borrar(argv.descripcion);
         console.log(borrar);
         break;
+    case 'listarByEstado':
+        let listadoByEstado=porHacer.getListadoByEstado(argv.completado);
+        console.log(listadoByEstado);
+        break;
     default:
         console.log('comando no es reconocido');
         break;

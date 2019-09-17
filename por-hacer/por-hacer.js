@@ -25,7 +25,7 @@ const crear = (descripcion) => {
 
     let porHacer = {
         descripcion,
-        completado: false
+        completado: "false"
     };
     listadoPorHacer.push(porHacer);
     guardaDB();
@@ -57,10 +57,17 @@ const borrar =(descripcion)=>{
     }else{ return false; }
 
 }
+const getListadoByEstado=(completado)=>{
+    cargarDB();
+    let listadoFiltrado=[];
+    listadoFiltrado= listadoPorHacer.find(tarea=>tarea.completado===completado);
+    return listadoFiltrado;
+}
 
 module.exports = {
     crear,
     getListado,
     actualizar,
-    borrar
+    borrar,
+    getListadoByEstado
 }
